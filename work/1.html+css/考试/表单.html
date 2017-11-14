@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>表单</title>
+	<style type="text/css" media="screen">
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+		form{
+			margin: 0 auto;
+		}
+		.login h4{
+			font-family:微软雅黑 blod;
+			line-height: 16px;
+			margin-bottom: 15px;
+		}
+		.user{
+			margin-bottom: 15px;
+		}
+		.user span{
+			display: inline-block;
+			width: 60px;
+			font-family: 宋体;
+			font-size: 12px;
+		}
+		.user input{
+			display: inline-block;
+			width: 198px;
+			height: 18px;
+			border:1px solid #ddd;
+			vertical-align: middle;
+		}
+		button{
+			position: absolute;
+			left: 65px;
+			width: 40px;
+			height: 20px;
+			background: blue;
+			color:white;
+			border:none;
+			font-size: 12px;
+			font-family: 宋体;
+			text-align: center;
+			vertical-align: middle;
+		}
+	</style>
+</head>
+<body>
+<form action="“/login" method="post">
+	<div class="login">
+		<h4>登录网易通行证</h4>
+		 <div class="user">
+            <div>
+                <span>用户名:</span>
+                <input type="text" >
+            </div>
+        </div>
+        <div class="user">
+            <div >
+                <span>密码:</span>
+                <input type="text" >
+            </div>
+        </div>
+        <button type="submit">登录</button>
+	</div>
+	<span class="button">anniu</span>
+</form>
+</body>
+</html>

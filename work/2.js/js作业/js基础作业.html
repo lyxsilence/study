@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js作业</title>
+	<script type="text/javascript">
+		// 随机整数
+		var num=Math.floor(Math.random()*1000);
+		// perseQuery函数用于解析url参数。代码实现：
+		var parseQuery = function(query){
+			        var reg = /([^=&\s]+)[=\s]*([^=&\s]*)/g;
+			        var obj = {};
+			        while(reg.exec(query)){
+				            obj[RegExp.$1] = RegExp.$2;
+			         }
+			        return obj;
+		};
+		var jerry = parseQuery("name=jerry&age=1");
+		console.log(jerry);
+		 
+		var tom = parseQuery("name= tom &age=12&gender&");
+		console.log(tom);
+
+
+
+
+
+
+
+		//函数multiply计算多个数字乘积
+		function multiply(){
+			var length=arguments.length,num=1,para;
+			for(i=0;i<length;i++){
+				para=arguments[i];
+				num=num*para;
+			}
+			return num;
+		}
+
+
+
+
+		//构造函数person代码：
+		function Person(name,age){
+			this.name=name;
+			this.age=age;
+
+			Person.prototype.introduce=function(){
+
+				console.log("I am"+this.name+"\,"+"I am "+this.age+"years old\!");
+
+			};
+
+		}
+
+		var jerry = new Person("Jerry", 2);
+		jerry.introduce();
+		function Person(name,age){
+			this.name=name;
+			this.age=age;
+			Person.prototype.introduce=function(){
+				console.log("I am"+this.name+"\,"+"I am"+this.age+"years old\!");
+			};
+		}
+
+
+
+
+		//转义特殊字符
+		function escapeHTML(htmlStr){
+			htmlStr=htmlStr.replace(/[<>"&%]/g,function(m0){
+				switch(m0){
+					case'<':
+					return"&lt;";
+					case'>':
+					return"&gt;";
+					case'\"':
+					return"&quot;";
+					case'&':
+					return"&amp;";
+
+				}
+			});
+			return htmlStr;
+		}
+		var a=escapeHTML('<div>Tom&"Jerry"</div> ');
+		console.log(a);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

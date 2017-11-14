@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>轮播头图</title>
+	<style type="text/css" media="screen">
+		.slide{
+			position: relative;
+			width: 200px;
+			height: 100px;
+			background-color: pink;
+		}
+		.slide .pointer{
+			position: absolute;
+			bottom: 10px;
+			right:10px;
+			line-height:10px;
+		}
+		.slide .pointer i{
+			display: inline-block;
+			margin-left:5px;
+			width:10px;
+			height:10px;
+			border-radius: 10px;
+			background: black;
+		}
+		.slide .pointer i.current{
+			background: #fff;
+		}
+	</style>
+</head>
+<body>
+	<div class="slide">
+		<!-- 图片省略 -->
+		<!-- 以下是指示器 -->
+		<div class="pointer">
+			<i class="current"></i>
+			<i></i>
+			<i></i>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js进阶作业</title>
+	<script type="text/javascript">
+		/*方法一：识别标准类型和内置类型的*/
+		function type(obj){
+			return Object.prototype.toString.call(obj).slice(8,-1);
+		}
+		// Object.create在某些浏览器没有支持，请给出Object.create的兼容实现。
+		Object.create=Object.create||function(obj){
+
+			var fun=function(){};
+			fun.prototype=obj;
+			return new fun();
+
+		};
+
+		var a = Object.create({x: 1, y: 2});
+		console.log(a.x);
+		// 兼容低版本浏览器的bind方法的代码实现。
+		Function.prototype.bind=function(obj){
+			var a=this,  args=arguments.length;
+			return function(){
+
+				a.apply(obj,Array.prototype.slice.call(args,1));
+			};
+
+
+		};
+
+		function move(x, y) {
+			this.x += x;
+			this.y += y;
+
+		}
+		var point = {x:1, y:2};
+		var pointmove = move.bind(point, 2, 2);
+		pointmove(); 
+		console.log(point);
+// {x:3, y:4}
+// 请实现一个函数，参数为n，返回结果为以n为下标的斐波那契数。
+		function fibonacci(n){
+			if(n==0){
+				return 0;
+			}else if(n==1) {
+				return 1;
+			}else{
+				return (arguments.callee(n-1)+arguments.callee(n-2));
+			}
+		}
+		var num = fibonacci(3); 
+		console.log(num);//2
+		var num = fibonacci(5); 
+		console.log(num);//5
+		//js测验
+		function Teacher() {}
+		Teacher.prototype = {
+			job: 'teacher',
+			setName: function(name) {
+				this.name = name;
+			}
+		};
+		var bill = new Teacher();
+		bill.setName('Bill');
+		alert(bill.name);
+		alert(bill.job);
+		bill.job='assistant';
+		alert(bill.job);
+		delete bill.job;
+		alert(bill.job);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

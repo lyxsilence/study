@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件对象</title>
+	<style type="text/css">
+		#div1{
+			position: absolute;
+			top: 0;
+			left: 0;
+			border:1px solid black;
+			width: 100px;
+			height: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1"></div>
+	
+	<script>
+		// var elem = document.ElementById('div1');
+		// var clickHandler = function(event) {
+		// 	// TO DO
+		// };
+		// elem.addEventListener('click',clickHandler,false);
+		// // <!-- IE低版本兼容 -->
+		// var elem = document.ElementById('div1');
+		// var clickHandler = function(event) {
+		// 	event = event||window.event;
+		// 	// TO DO
+		// };
+		// addEvent(elem,'click',clickHandler,false);
+		//拖拽div
+		var elem= document.getElementById('div1');
+		var clientX,clientY,moving;
+		var mouseDownHandler = function(event) {
+			event = event||window.event;
+			clientX = event.clientX;
+			clientY = event.clientY;
+			moving = !0;
+		};
+		var mouseMoveHandler = function(event) {
+			if(!moving) return;
+			event = event||window.event;
+			var newClientX = event.clientX;
+			var newClientY = event.clientY;
+			var left = parseInt(elem.style.left) || 0,
+				top = parseInt(elem.style.top) || 0;
+			elem.style.left = left + (newClientX-clientX) + 'px';
+			elem.style.top = top + (newClientY-clientY) + 'px';
+			clientX = newClientX;
+			clientY = newClientY;
+		};
+		var mouseUpHandler = function(event) {
+			moving = !1;
+		};
+
+		addEvent(elem,'mousedown',mouseDownHandler);
+		addEvent(elem,'mousemove',mouseMoveHandler);
+		addEvent(elem,'mouseup',mouseUpHandler);
+	</script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>实现一个tab</title>
+	<style type="text/css" media="screen">
+		*{
+			margin: 0;
+			padding: 0;
+			list-style-type: none;
+		}
+		.tab{
+			width: 298px;
+			height: 98px;
+			margin:10px;
+			border:1px solid #eee;
+			overflow: hidden;
+		}
+		.tab-title{
+			width: 100%;
+			height: 24px;
+			background: #f7f7f7;
+			position: relative;
+		}
+		.tab-title ul{
+			/*position: absolute;*/
+			width: 301px;
+			left:-1;
+		}
+		.tab-title li{
+			float: left;
+			width:95px;
+			height:22px;
+			line-height: 22px;
+			text-align: center;
+			padding: 0 1px;
+			border-bottom: 1px solid #eee;
+			overflow: hidden;
+		}
+		.tab-title li a{
+			text-decoration: none;
+			color: #000;
+		}
+		.tab-title li a:hover{
+			color: red;
+		}
+		.tab-title li.select{
+			background: #fff;
+			border-bottom:transparent;
+			border-left:1px solid #eee;
+			border-right:1px solid #eee; 
+			padding: 0;
+		}
+		.txt{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="tab">
+		<div class="tab-title">
+			<ul>
+				<li class="select"><a href="#">课程</a></li>
+				<li><a href="#">学习计划</a></li>
+				<li><a href="#">技能图谱</a></li>
+			</ul>
+			<div class="active">课程内容</div>
+			<div class="txt">学习计划内容</div>
+			<div class="txt">技能图谱内容</div>
+		</div>
+	</div>
+</body>
+</html>

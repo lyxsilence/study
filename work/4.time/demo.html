@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>天数计算器</title>
+  <script src="jquery-3.2.1.min.js"></script>
+  <script src="demo.js"></script>
+</head>
+<body>
+  <h2>天数计算器</h2>
+  <div>
+    <label>起:</label>
+    <input type="text" id="beginYear">
+    <label >年</label>
+    <input type="text" id="beginMonth">
+    <label >月</label>
+    <input type="text" id="beginDay">
+    <label >日</label>
+  </div>
+  <br>
+  <div>
+    <label>止:</label>
+    <input type="text" id="endYear">
+    <label >年</label>
+    <input type="text" id="endMonth">
+    <label >月</label>
+    <input type="text" id="endDay">
+    <label >日</label>
+  </div>
+  <br>
+  <div>
+    <input type="button" id="submit" value="确定" onclick="days()">
+    <input type="button" id="cancel" value="取消">
+  </div>
+  <script>
+    function days() {
+      // 一年的第几天
+      var day1 = YEAR.dayOfYear( Number($("#beginYear").val()), Number($("#beginMonth").val()) ) + Number($("#beginDay").val());
+      var day2 = YEAR.dayOfYear( Number($("#endYear").val()), Number($("#endMonth").val()) ) + Number($("#endDay").val());
+      var year1 = Number($("#beginYear").val());
+      var year2 = Number($("#endYear").val());
+      if ( year1 < year2 ) {
+        var sum = YEAR.yearCount( Number($("#beginYear").val()), Number($("#endYear").val()) );
+        if ( YEAR.isLeapYear( year1 ) )
+          sum = sum + (366 - day1) + day2;
+        else
+          sum = sum + (365 - day1) + day2;
+        alert("之间有" + sum + "天！");
+      } else if ( year1 == year2 ) {
+          sum = day2 - day1;
+        alert("之间有" + sum + "天！");
+      } else {
+        $(function() {
+          alert("请输入正确的起止时间！");
+        });
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+ 
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta charset=utf-8> 
+<title>如何实现一个日期下拉菜单</title> 
+<script type="text/javascript" src="time.js"> 
+
+</script> 
+</head> 
+<body> 
+<select id="selYear"></select> 
+<select id="selMonth"></select> 
+<select id="selDay"></select> 
+<script type="text/javascript" >
+	var selYear = window.document.getElementById("selYear"); 
+	var selMonth = window.document.getElementById("selMonth"); 
+	var selDay = window.document.getElementById("selDay"); 
+	// 新建一个DateSelector类的实例，将三个select对象传进去 
+	// new DateSelector(selYear, selMonth, selDay,  new Date()); 
+	// 也可以试试下边的代码 
+	var dt = new Date(); 
+	new DateSelector(selYear, selMonth ,selDay, dt); 	
+</script>
+</body> 
+</html> 

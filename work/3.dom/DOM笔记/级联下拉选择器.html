@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>级联下拉选择器</title>
+	<script>
+		function addEvent(node,event,handler){
+			if(!!node.addEventListener){
+				node.addEventListener(event,handler,!1);
+			} else {
+				node.attachEvent('no'+event,handler);
+			}
+		}
+	</script>
+</head>
+<body>
+	<form name="course" class="demo">
+		<select name="chapter">
+			<option value="">请选择章目录</option>
+		</select>
+		<select name="section">
+			<option value="">请选择节目录</option>
+		</select>
+		<select name="section1">
+			<option value="">请选择节目录</option>
+		</select>
+	</form>
+	<script>
+		// 定义数据
+		var chapters = [
+			{text:'1.DOM基础',value:'1'},
+			{text:'2.DOM事件',value:'2'},
+			{text:'3.DOM循环',value:'3'},
+		];
+		var sections ={
+			1:[
+				{text:'1.1 文档树',value:'1.1'},
+				{text:'1.2 节点操作',value:'1.2'},
+				{text:'1.3 元素遍历',value:'1.3'},
+				{text:'1.4 样式操作',value:'1.4'},
+				{text:'1.5 属性操作',value:'1.5'},
+				{text:'1.6 表单操作',value:'1.6'},
+			],
+			2:[
+				{text:'2.1 事件类型',value:'2.1'},
+				{text:'2.2 事件模型',value:'2.2'},
+				{text:'2.3 事件应用',value:'2.3'},
+			],
+			3:[
+				{text:'3.1 类型',value:'3.1'},
+				{text:'3.2 模型',value:'3.2'},
+				{text:'3.3 应用',value:'3.3'},
+				]
+			// TO DO
+			};
+			var course = document.forms.course;
+			// 选择填充器
+		function fillSelect(select,list){
+			for(var i=select.length;i>0;i--){
+				select.remove(i);
+				// console.log(i);
+			}
+			for(var j=0,l=list.length,data;j<l;j++){
+				data = list[j];
+				// console.log(data);
+				var option = new Option(data.text,data.value);
+				select.add(option);
+			}
+			// for(var m=0,n=list[1].length,data;m<n;m++){
+			// 	data = list[m];
+			// 	var option = new Option(data.text,data.value);
+			// 	select.add(option);
+			// }
+			// TO DO
+		}
+		addEvent(
+			course.chapter, 
+			'change',function(event){
+				var value = course.chapter.value,
+					list = sections[value]||[];
+					console.log(value);
+					console.log(list);
+					// list[1] = sections[value]||[];
+				fillSelect(course.section,list);
+			}
+		);
+		fillSelect(course.chapter,chapters);
+	</script>
+</body>
+</html>

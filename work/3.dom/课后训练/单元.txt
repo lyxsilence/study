@@ -1,0 +1,6 @@
+1.如果html元素’ <p id="profession"><em id="m">微专业</em>是由<a id="n" href="http://study.163.com">网易云课堂</a>精心打造的职业化课程</p>’ 对应的DOM节点为profession, 那么profession. firstElementChild属性可以获取到id为m的元素。
+2.如果要创建html为’<label>用户名：</label>’的DOM节点, 以下是实现这个操作对应的代码，请补全代码:
+var label = document.___creatElement__('label');
+label.textContent = "用户名：";
+3.如果html元素’ <div><label for="user">用户名：</label><input id="user"></div>’中label元素对应的DOM节点是element，现在要获取该元素的for属性，以下是实现这个操作对应的代码，请补全代码：
+element["_______________"] ;

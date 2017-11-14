@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>浮动布局</title>
+	<style type="text/css">
+		html,body,.parent{
+			height: 100px;
+		}
+		.parent{
+			display: flex;
+		}
+		.side{
+			width: 200px;
+			margin-right: 10px;
+			background-color:red;
+			text-align: center;
+			float: left;
+		}
+		.main{
+			flex:1;
+			margin: 0;
+			background-color:blue;
+			text-align: center;
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<div class="parent clearfix">
+		<div class="side">侧栏</div>
+		<div class="main">主栏</div>
+	</div>
+</body>
+</html>

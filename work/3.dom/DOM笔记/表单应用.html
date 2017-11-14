@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>登录表单</title>
+</head>
+<body>
+	<form action="/api/login" method="get" class="m-form" name="loginForm" target="result" autocomplete="off">
+		<legend>手机号码登陆</legend>
+		<fieldset>
+			<div class="msg" id="message"></div>
+			<div>
+				<lable for="telephone">手机号：</lable>
+				<input id="telephone" type="tel" name="telephone" class="u-txt" maxlength="11" pattern="^0?(13[0-9]|15[012356789]|18[0236789]|14[57])[0-9]{8}$"></br>
+				<span class="tip">11位数字手机号码</span>
+			</div>
+			<div>
+				<lable for="password">密 码：</lable>
+				<input id="password" class="u-txt" type="password" name="password"></br>
+				<span class="tip">至少6位，同时包含数字和字母</span>
+			</div>
+			<div>
+				<button name="loginBtn">登 录</button>
+			</div>
+		</fieldset>
+	</form>
+</body>
+</html>

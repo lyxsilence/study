@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>下拉菜单</title>
+	<style type="text/css">
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+		div{
+			font-size: 12px;
+			font-family: 宋体;
+			color: black;
+		}
+		button{
+			width: 52px;
+			height: 30px;
+			background-color: #eee;
+			border: 1px solid #ddd;
+		}
+		button:hover{
+			width: 50px;
+			height: 30px;
+			background-color: #eee;
+			border: 1px solid #ddd;
+		}
+		ul{
+			margin-top:1px;
+			list-style-type: none;
+			width: 100px;
+			display: none;
+		}
+		ul:hover{
+			list-style-type: none;
+			width: 100px;
+			display:block;
+		}
+		ul li{
+			height: 30px;
+			border: 1px solid #ddd;
+			background-color: #fff;
+			padding: 0 10px;
+			margin-top: -1px;
+			line-height: 30px;
+			text-align: center;
+			vertical-align: middle;
+		}
+		ul li:hover{
+			background-color: #ddd;
+		}
+		div button:hover +ul{
+			display: block;	
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<button type="submit">按钮</button>
+		<ul>
+			<li>下拉菜单项</li>
+			<li>下拉菜单项</li>
+			<li>下拉菜单项</li>
+			<li>下拉菜单项</li>
+		</ul>
+	</div>
+</body>
+</html>
